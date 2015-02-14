@@ -7,7 +7,7 @@ angular.module('DNAViewer', ['ngSanitize', 'ngRoute'])
 				templateUrl: 'app/main/index.html',
 				controller: 'MainCtrl'
 			})
-			.when('/view/:DNAId', {
+			.when('/view/:id', {
 				templateUrl: 'app/view/index.html',
 				controller: 'ViewCtrl'
 			})

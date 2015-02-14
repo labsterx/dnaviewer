@@ -1,10 +1,44 @@
 <div class="container">
 
-<h1 class="text-center page-title">DNA Viewer</h1>
+<ol class="breadcrumb">
+  <li><a href="#/">Home</a></li>
+  <li>{{dna.name}}y</li>
+</ol>
 
-<div class="text-center">
-
-DNA Viewer
 
 
+<div>
+<table class="table table-striped">
+<thead>
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Visable</th>
+		<th>Start</th>
+		<th>End</th>
+		<th>Strand</th>
+		<th>Size</th>
+	</tr>
+</thead>
+<tbody>
+	<tr ng-repeat="feature in dna.dnafeatures | orderBy: 'start' ">
+		<td></td>
+		<td>{{feature.dnafeature.name}}</td>
+		<td>{{feature.dnafeature.category.name}}</td>
+		<td>[TODO]</td>
+		<td>{{feature.start}}</td>
+		<td>{{feature.end}}</td>
+		<td>{{feature.strand}}</td>
+		<td>{{feature.dnafeature.length}}</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+
+<div>
+<pre>
+{{dna | json}}
+</pre>
 </div>

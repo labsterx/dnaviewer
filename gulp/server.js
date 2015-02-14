@@ -39,9 +39,11 @@ gulp.task('serve', ['watch'], function () {
   ], [
     '.tmp/{app,components}/**/*.css',
     'src/assets/images/**/*',
+    'src/assets/fixtures/**/*',
     'src/*.html',
     'src/{app,components}/**/*.html',
-    'src/{app,components}/**/*.js'
+    'src/{app,components}/**/*.js',
+    'src/{app,components}/**/*.json',
   ]);
 });
 

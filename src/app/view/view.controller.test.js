@@ -7,10 +7,10 @@ describe('ViewCtrl', function(){
 
 	beforeEach(module('DNAViewer'));
 
-	beforeEach(inject(function($rootScope, $controller) {
+	beforeEach(inject(function($rootScope, $controller, DNAViewerService) {
 		scope = $rootScope.$new();
 		createCtrl = function() {
-			$controller('ViewCtrl', {$scope: scope});
+			$controller('ViewCtrl', {$scope: scope, DNAViewerService: DNAViewerService});
 		};
 	}));
 
