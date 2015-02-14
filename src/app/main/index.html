@@ -1,0 +1,19 @@
+<div class="container">
+
+<h1 class="text-center page-title">DNA Viewer</h1>
+
+<div class="text-center">
+
+	<form name="input-form" ng-submit="viewDNA()">
+	<div class="input-group">
+		<input type="text" class="form-control" id="dna-name-input" ng-model="DNAName" placeholder="Please enter DNA's name">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="submit" id="view-dna-btn" ng-disabled="!DNAName">View DNA</button>
+		</span>
+	</div>
+	</form>
+
+	<div>Note: this is currently a hack. We will only show one DNA no matter what the user has entered</div>
+
+
+</div>

@@ -6,7 +6,9 @@
 'use strict';
 
 var MainPage = function() {
-
+	this.pageTitle = element(by.className('page-title'));
+	this.DNANameInput = element(by.id('dna-name-input'));
+	this.enterBtn = element(by.id('view-dna-btn'));
 };
 
 module.exports = new MainPage();
