@@ -1,5 +1,5 @@
 # dnaviewer
-Browser Based Viewer of DNA, inplemented by LabsterX (labsterx@gmail.com).
+Browser Based Viewer of DNA, inplemented by LabsterX.
 
 ## Introduction
 This repository implements a very simple single page application (SPA) that renders a diagram
