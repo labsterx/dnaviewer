@@ -7,11 +7,19 @@ angular.module('DNAViewer')
 
 			$scope.dna = null;
 			$scope.id = $routeParams.id;
+			$scope.error = null;
 
-			DNAViewerService.getDNAbyID($scope.id)
-			.then(function(data) {
-				console.log(data);
-				$scope.dna = data;
-			});
+			$scope.getDNA = function() {
+				DNAViewerService.getDNAbyID($scope.id)
+				.then(function(data) {
+					console.log(data);
+					$scope.dna = data;
+				},
+				function(err) {
+					$scope.error = "Sorry, error in getting DNA data: " + err;
+				});
+			};
+
+			$scope.getDNA();
 
 	}]);

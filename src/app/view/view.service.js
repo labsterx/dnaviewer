@@ -16,8 +16,8 @@ angular.module('DNAViewer')
 						.success(function(data) {
 							defer.resolve(data);
 						})
-						.error(function() {
-							defer.reject('Error in getting DNA data for' + id);
+						.error(function(data, status, headers) {
+							defer.reject('Error in getting DNA data for ' + id);
 						});
 
 					return defer.promise;

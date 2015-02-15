@@ -14,11 +14,26 @@ describe('MainCtrl', function(){
 		};
 	}));
 
-
 	describe('.constructor', function() {
 
 		it('can be created', function() {
 			expect(createCtrl).to.not.throw();
+		});
+
+	});
+
+	describe('#viewDNA', function() {
+
+		var $loc;
+
+		beforeEach(inject(function($location) {
+			$loc = $location;
+			createCtrl();
+		}));
+
+		it('should redirect to the correct location', function() {
+			scope.viewDNA();
+			expect($loc.path()).to.equal('/view/1234');  // This is a temporary hack
 		});
 
 	});
