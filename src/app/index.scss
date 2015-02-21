@@ -1,11 +1,10 @@
-/* ------- Begin Variables --------- */
+/* ------- Variables --------- */
 
 $color-selected: #D35400;
 $color-selected-bg: #FCC892;
 
-/* ------- End Variables --------- */
 
-/* ------------ Begain main page ----------- */
+/* ------------ Main page ----------- */
 .main-input {
 	margin: 10px auto;
 	text-align: center;
@@ -21,9 +20,9 @@ h1.page-title {
 	padding: 10px;
 	color: #888;
 }
-/* ------------ Begain main page ----------- */
 
-/* ------------ Begin Feature Diagram ------------ */
+
+/* ------------ Feature Diagram ------------ */
 .diagram {
 
 	text-align: center;
@@ -100,9 +99,9 @@ h1.page-title {
 	}
 
 }
-/* ------------ End Feature Diagram ------------ */
 
-/* ------------ Begin Feature Table ----------- */
+
+/* ------------ Feature Table ----------- */
 .feature-table {
 
 	border: 1px solid #EEE;
@@ -117,15 +116,73 @@ h1.page-title {
 
 		td {
 			border: none !important;
+			text-align: left;
 		}
 
 	}
 
 }
 
-/* ------------ Begin Feature Table ----------- */
 
-/* ------------- Begin Bootstrap Overwrite -------- */
+/* ------------ DNA Modal ---------------- */
+.dna-modal {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 999;
+	// opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+
+	.modal-content {
+		width: 500px;
+		max-height: 400px;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+
+		.sequence {
+			margin: 20px auto;
+			max-height: 300px;
+			overflow-y: scroll;
+
+			pre {
+				text-align: left;
+				background-color: #FFF;
+				border: none;
+			}
+		}
+
+	}
+
+	.modal-close {
+		z-index: 9999;
+		color: #7E7E7E;
+		position: absolute;
+		right: 5px;
+		text-align: center;
+		top: 4px;
+		font-size: 19px;
+		width: 24px;
+		text-decoration: none;
+	}
+
+	.modal-close:hover { color: #000; }
+
+}
+
+
+/* ------------- Bootstrap Overwrite -------- */
 .my-navbar {
 	border-radius: 0px !important;
 }
@@ -133,8 +190,6 @@ h1.page-title {
 .btn-primary {
 	background-image: none;
 }
-
-/* ------------- End Bootstrap Overwrite -------- */
 
 
 // injector
