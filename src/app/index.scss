@@ -1,3 +1,141 @@
+/* ------- Begin Variables --------- */
+
+$color-selected: #D35400;
+$color-selected-bg: #FCC892;
+
+/* ------- End Variables --------- */
+
+/* ------------ Begain main page ----------- */
+.main-input {
+	margin: 10px auto;
+	text-align: center;
+	max-width: 600px;
+}
+
+h1.page-title {
+	margin-bottom: 20px;
+	font-size: 28px;
+}
+
+.notes {
+	padding: 10px;
+	color: #888;
+}
+/* ------------ Begain main page ----------- */
+
+/* ------------ Begin Feature Diagram ------------ */
+.diagram {
+
+	text-align: center;
+
+	.plasmidtrack {
+		fill: #D2D7D3;
+	}
+
+	.tracklabeltitle {
+		font-size:25px;
+		font-weight:bold
+	}
+
+	.tracklabelsmall {
+		fill: #888;
+	}
+
+	.markerlabel {
+		font-size: 13px;
+		fill: #666;
+		stroke: none;
+	}
+
+	.feature-marker {
+		fill: #59ABE3;
+	}
+
+	.feature-marker-selected {
+		fill: $color-selected;
+
+		.markerlabel {
+			fill: $color-selected;
+			font-weight: bold;
+		}
+	}
+
+	.track-scale {
+		stroke: #D2D7D3;
+		stroke-width: 2px;
+	}
+
+	.scale-label {
+		font-size: 8px;
+		fill: #999
+	}
+
+	.panel {
+
+		border: 1px dotted #2C3E50;
+		width: 200px;
+		word-wrap: break-word;
+		position: relative;
+		z-index: 10;
+		background-color: rgba(255, 255, 255, 0.85);
+		text-align: left;
+
+		.panel-heading {
+
+			background-color: #59ABE3;
+			background-image: none;
+			opacity: 0.7;
+			border: none;
+
+			.panel-close {
+				position: absolute;
+				right: 10px;
+				top: 15px;
+				padding-left: 5px;
+				color: #FFF;
+			}
+
+		}
+
+	}
+
+}
+/* ------------ End Feature Diagram ------------ */
+
+/* ------------ Begin Feature Table ----------- */
+.feature-table {
+
+	border: 1px solid #EEE;
+	padding: 15px;
+	margin-bottom: 40px;
+
+	table {
+
+		tr.selectedFeatureRow {
+			background-color: $color-selected-bg !important;
+		}
+
+		td {
+			border: none !important;
+		}
+
+	}
+
+}
+
+/* ------------ Begin Feature Table ----------- */
+
+/* ------------- Begin Bootstrap Overwrite -------- */
+.my-navbar {
+	border-radius: 0px !important;
+}
+
+.btn-primary {
+	background-image: none;
+}
+
+/* ------------- End Bootstrap Overwrite -------- */
+
 
 // injector
 // endinjector

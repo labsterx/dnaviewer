@@ -1,44 +1,112 @@
+<style>
+
+</style>
+
 <div class="container">
 
 <ol class="breadcrumb">
   <li><a href="#/">Home</a></li>
-  <li>{{dna.name}}y</li>
+  <li>{{dna.name}}</li>
 </ol>
 
+<!-- begin diagram -->
+<div class="diagram">
 
+	<!-- begin dna diagram -->
+	<plasmid plasmidheight="630" plasmidwidth="750" sequencelength='{{dna.length}}'>
+		<plasmidtrack radius='235' class="plasmidtrack">
+			<tracklabel
+				text='{{dna.name}}'
+				labelclass="tracklabeltitle">
+			</tracklabel>
+			<tracklabel labelclass="tracklabelsmall" text="Click on a feature region for more details" vadjust="30"></tracklabel>
+			<trackmarker
+				ng-repeat="feature in dna.dnafeatures | orderBy: 'start' "
+				start='{{feature.start}}'
+				end='{{feature.end}}'
+				ng-class="(selectedFeature && feature.dnafeatureId == selectedFeature.dnafeatureId) ? 'feature-marker-selected' : 'feature-marker'"
+				arrowendlength="{{feature.strand * 4}}"
+				arrowstartlength="{{feature.strand * (-4)}}"
+				markerclick="featureDiagramClick($event,feature,$marker)">
+				<markerlabel
+					text="{{feature.dnafeature.name}}"
+					labelclass="markerlabel"
+					vadjust='50'>
+				</markerlabel>
+				<trackscale
+					interval='100'
+					direction='in'
+					showlabels='1'
+					class="track-scale"
+					labelvadjust='10'
+					labelclass='scale-label'>
+				</trackscale>
+			</trackmarker>
+		</plasmidtrack>
+	</plasmid>
+	<!-- end dna diagram -->
+
+	<!-- begin dna marker popup -->
+	<div class="panel panel-primary"
+		ng-show="selectedFeature && !closePopup"
+		ng-attr-style="position:absolute;top:{{selectedFeatureMarker.getPosition().outer.middle.y + 125}}px;left:{{selectedFeatureMarker.getPosition().outer.middle.x + 90}}px">
+		<div class="panel-heading">
+			<span class="panel-title">{{selectedFeature.dnafeature.name}}</span><i ng-click="closePopup = true" class="panel-close glyphicon glyphicon-remove"></i>
+		</div>
+		<div id="markerpopuptext" class="panel-body">
+			<div>
+				<strong>Type:</strong> {{selectedFeature.dnafeature.category.name}}
+			</div>
+			<div>
+				<strong>Position:</strong> {{selectedFeature.start}} - {{selectedFeature.end}}
+			</div>
+			<div>
+				<strong>Size:</strong> {{selectedFeature.dnafeature.length}}
+			</div>
+			<div>
+				<strong>Strand:</strong> {{getStrandText(selectedFeature.strand)}}
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- end dna marker popup -->
 
 <div>
-<table class="table table-striped">
-<thead>
-	<tr>
-		<th></th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Visable</th>
-		<th>Start</th>
-		<th>End</th>
-		<th>Strand</th>
-		<th>Size</th>
-	</tr>
-</thead>
-<tbody>
-	<tr ng-repeat="feature in dna.dnafeatures | orderBy: 'start' ">
-		<td></td>
-		<td>{{feature.dnafeature.name}}</td>
-		<td>{{feature.dnafeature.category.name}}</td>
-		<td>[TODO]</td>
-		<td>{{feature.start}}</td>
-		<td>{{feature.end}}</td>
-		<td>{{feature.strand}}</td>
-		<td>{{feature.dnafeature.length}}</td>
-	</tr>
-</tbody>
-</table>
+<!-- end diagram -->
+
+<!-- begin feature table -->
+<div class="feature-table">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Visable</th>
+				<th>Start</th>
+				<th>End</th>
+				<th>Strand</th>
+				<th>Size</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="feature in dna.dnafeatures | orderBy: 'start' " ng-class="{'selectedFeatureRow' : feature.dnafeatureId == selectedFeature.dnafeatureId }" ng-click="featureTableClick(feature)">
+				<td></td>
+				<td>{{feature.dnafeature.name}}</td>
+				<td>{{feature.dnafeature.category.name}}</td>
+				<td>Yes</td>
+				<td>{{feature.start}}</td>
+				<td>{{feature.end}}</td>
+				<td>{{getStrandText(feature.strand)}}</td>
+				<td>{{feature.dnafeature.length}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+<!-- end feature table -->
 
-
-<div>
-<pre>
-{{dna | json}}
-</pre>
+<div style="display: none">
+	<pre>
+	{{dna | json}}
+	</pre>
 </div>

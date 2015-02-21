@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('DNAViewer', ['ngSanitize', 'ngRoute'])
+angular.module('DNAViewer', ['ngSanitize', 'ngRoute', 'angularplasmid'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
