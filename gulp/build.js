@@ -75,7 +75,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'angularRssReader'
+      module: 'DNAViewer'
     }))
     .pipe(gulp.dest('.tmp/inject/'));
 });
@@ -128,9 +128,14 @@ gulp.task('images', function () {
 
 gulp.task('fonts', function () {
   return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+    .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest('dist/fonts/'));
+});
+
+gulp.task('fixtures', function () {
+  return gulp.src('src/assets/fixtures/**/*')
+    .pipe(gulp.dest('dist/assets/fixtures/'));
 });
 
 gulp.task('misc', function () {
@@ -142,4 +147,4 @@ gulp.task('clean', function (done) {
   $.del(['dist/', '.tmp/'], done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['html', 'images', 'fonts', 'fixtures', 'misc']);
