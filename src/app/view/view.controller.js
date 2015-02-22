@@ -15,7 +15,7 @@ angular.module('DNAViewer')
 			$scope.getDNA = function() {
 				DNAViewerService.getDNAbyID($scope.id)
 				.then(function(data) {
-					console.log(data);
+					// console.log(data);
 					$scope.dna = data;
 				},
 				function(err) {
