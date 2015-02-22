@@ -5,7 +5,7 @@
 <div class="container">
 
 <!-- begin error message -->
-<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+<div id="viewer-error" class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
 <!-- end error message -->
 
 <!-- begin breadcrumb -->
@@ -72,8 +72,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="feature in dna.dnafeatures | orderBy: 'start' " ng-class="{'selectedFeatureRow' : feature.dnafeatureId == selectedFeature.dnafeatureId }">
-				<td ng-click="toggleFeatureSelection(feature)"><input type="checkbox" ng-checked="isFeatureSelected(feature)"></td>
+			<tr ng-repeat="feature in dna.dnafeatures | orderBy: 'start' " ng-class="{'selected-feature-row' : feature.dnafeatureId == selectedFeature.dnafeatureId }">
+				<td ng-click="toggleFeatureSelection(feature)"><input type="checkbox" class="table-select" ng-checked="isFeatureSelected(feature)"></td>
 				<td ng-click="toggleFeatureSelection(feature)">{{feature.dnafeature.name}}</td>
 				<td ng-click="toggleFeatureSelection(feature)">{{feature.dnafeature.category.name}}</td>
 				<td ng-click="toggleFeatureSelection(feature)">Yes</td>
@@ -82,7 +82,7 @@
 				<td ng-click="toggleFeatureSelection(feature)">{{getStrandText(feature.strand)}}</td>
 				<td ng-click="toggleFeatureSelection(feature)">{{feature.dnafeature.length}}</td>
 				<td ng-hide="isFeatureSelected(feature)" ng-click="toggleFeatureSelection(feature)"></td>
-				<td ng-show="isFeatureSelected(feature)"><button type="button" class="btn btn-xs btn-default"  ng-click="showModal()">Sequence</button></td>
+				<td ng-show="isFeatureSelected(feature)"><button type="button" class="btn btn-xs btn-default view-seq-btn"  ng-click="showModal()">Sequence</button></td>
 			</tr>
 		</tbody>
 	</table>
