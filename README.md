@@ -11,7 +11,7 @@ A quick Google Search for "Plasmid Diagram" (plasmids are a type of circular DNA
 designs.
 
 ## Notes
-To show DNA diagrams, this app uses AngularPlasmid (http://angularplasmid.vixis.com/), a third party JavaScript library that display DNA plasmids using AngularJS and SVG. This library only handles circular DNA. Therefore, this app is currenly limited to only showing circular DNA diagrams.
+To show DNA diagrams, this app uses AngularPlasmid (http://angularplasmid.vixis.com/), a third party JavaScript library that displays DNA plasmids using AngularJS and SVG. This library only handles circular DNA. Therefore, this app is currenly limited to showing circular DNA diagrams only.
 
 This app uses Gulp as the build system that automates tasks such as code minification, copying JS files and static images etc.
 
